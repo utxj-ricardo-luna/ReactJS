@@ -4,9 +4,54 @@ h2{
 h1{
     color: pink;
 }
-.Encabezado{
-    background-color: blanchedalmond;
+.encabezadoDiv{
+    background-color: rgb(181, 86, 181);
+    width: 100%;
+    height: 200px;
+    display: flex;
 }
-.Logo img{
-    width: 100px;
+.logoDiv{
+    width: 20%;
+}
+.logoDiv img{
+    width: 200px;
+}
+.menuDiv{
+    width: 60%;
+    text-align: center;
+}
+.menuDiv ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.menuDiv li{
+    font-size: 1.0rem;
+    color: white;
+    cursor: pointer;
+    padding: 10px 40px 10px 40px;
+    background-color: black;
+}
+.menuDiv li:hover{
+    background-color: gray;
+    color: black;
+}
+.redesDiv{
+    width: 20%;
+}
+.redesDiv ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.redesDiv li img{
+    width: 30px;
+    cursor: pointer;
 }

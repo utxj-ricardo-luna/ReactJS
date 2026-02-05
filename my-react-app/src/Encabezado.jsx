@@ -7,18 +7,17 @@ import youtube from './assets/redes/youtube.png';
 import './Encabezado.css';
 function Encabezado() {
     return (
-        <div className="Encabezado">
+        <div className="encabezadoDiv">
             <Logo />
             <Menu />
             <Redes />
-            <h2>Bienvenido a mi sitio</h2>
         </div>
     );
 }
 
 function Logo(){
     return (
-        <div className="Logo">
+        <div className="logoDiv">
             <img src={miLogo} alt="React Logo" />
         </div>
     );
@@ -26,7 +25,7 @@ function Logo(){
 
 function Menu(){
     return (
-        <nav>
+        <div className="menuDiv">
             <ul>
                 <li>Inicio</li>
                 <li>Acerca de</li>
@@ -34,12 +33,12 @@ function Menu(){
                 <li>Contacto</li>
                 <li>Sucursales</li>
             </ul>
-        </nav>
+        </div>
     );
 }
 function Redes(){
     return (
-        <nav>
+        <div className="redesDiv">
             <ul>
                 <li><img src={facebook} alt="Facebook" /></li>
                 <li><img src={whatsapp} alt="WhatsApp" /></li>
@@ -47,7 +46,7 @@ function Redes(){
                 <li><img src={gmail} alt="Gmail" /></li>
                 <li><img src={youtube} alt="Youtube" /></li>
             </ul>
-        </nav>
+        </div>
     );
 }
 export default Encabezado
