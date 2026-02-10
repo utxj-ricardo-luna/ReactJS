@@ -1,0 +1,55 @@
+.productoDiv{
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+}
+.productoDiv h2{
+    color: white;
+}
+.productoUl{
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.productoUl ul{
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+.productoUl li{
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+}
+
+.productoUl .titulo{
+    color: purple;
+    font: bold 18px/1.5 Arial, sans-serif;
+}
+.productoUl .parrafoP{
+    color: blue;
+}
+.productoUl .parrafo{
+    color: red;
+}
+.productoUl .boton{
+    background-color: #007bff; /* Color principal */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Suaviza los cambios de estado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.productoUl .imgP{
+    width: 100%;
+    border-radius: 5px;
+}
