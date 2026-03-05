@@ -58,3 +58,6 @@
 .classMain .divProducto img{
     width: 100px;
 }
+.classMain .btn-editar{
+    background-color: rgb(223, 191, 49);
+  }
