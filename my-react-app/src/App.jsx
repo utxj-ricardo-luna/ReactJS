@@ -3,13 +3,16 @@ import ContenedorTarjetas from "./ContenedorTarjetas";
 import Encabezado from "./Encabezado";
 import PieComponente from "./PieComponente";
 import PromosContenido from "./PromosContenido";
+import { AuthProvider } from "./AuthContext";
 
 function App(){
   const [vista, setVista] = useState("Inicio");
   return (
     <div>
-      <Encabezado cambiarVista={setVista}/>
-      <ContenedorTarjetas vista = {vista}/>
+      <AuthProvider>
+        <Encabezado cambiarVista={setVista}/>
+        <ContenedorTarjetas vista = {vista} chVista={setVista}/>
+      </AuthProvider>
       <PromosContenido />
       <PieComponente />
     </div>

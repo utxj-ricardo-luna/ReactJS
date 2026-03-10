@@ -6,6 +6,7 @@ import gmail from './assets/redes/gmail.png';
 import youtube from './assets/redes/youtube.png';
 import PropTypes from 'prop-types';
 import './Encabezado.css';
+import { useAuth } from './AuthContext';
 
 function Encabezado({cambiarVista}){ 
     return (
@@ -26,18 +27,28 @@ function Logo(){
 }
 
 function Menu({cambiarVista}){
+    const { isLoggedIn, logout } = useAuth();
+    const handleLogout = () => {
+        logout();              // Esto cambia isLoggedIn a false en el Contexto
+        cambiarVista("Inicio"); // Mandamos al usuario a la página principal
+    };
     return (
         <div className="menuDiv">
             <ul>
                 <li onClick={() => cambiarVista("Inicio")}>Inicio</li>
                 <li onClick={() => cambiarVista("AcercaDe")}>Acerca de</li>
                 <li onClick={() => cambiarVista("Productos")}>Productos</li>
-                <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
-                <li onClick={() => cambiarVista("Carrito")}>Carrito</li>
                 <li onClick={() => cambiarVista("Galeria")}>Galeria</li>
                 <li onClick={() => cambiarVista("Sucursales")}>Sucursales</li>
                 <li onClick={() => cambiarVista("Contacto")}>Contacto</li>
-                <li onClick={() => cambiarVista("Login")}>LogIn</li>
+                 {isLoggedIn ? (
+                <>
+                <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
+                <li onClick={() => cambiarVista("Carrito")}>Carrito</li>
+                <li onClick={handleLogout}>Cerrar</li>
+                </>):(            
+                <li onClick={() => cambiarVista("Login")}>Ingresar</li>
+                )}
             </ul>
         </div>
     );

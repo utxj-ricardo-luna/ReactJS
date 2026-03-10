@@ -8,21 +8,23 @@ import Contacto from './Contacto';
 import Usuarios from './Usuarios';
 import Carritos from './Carrito';
 import Login from './Login';
-function ContenedorTarjetas({vista}) {
+import RegistrarUsuario from './RegistrarUsuario';
+function ContenedorTarjetas(props) {
     const vistas = {
     "Inicio": <Inicio/>,
     "AcercaDe": <AcercaDe/>,
     "Productos": <Productos/>,
     "Usuarios": <Usuarios/>,
+    "RegistrarUsuarios": <RegistrarUsuario/>,
     "Carrito": <Carritos/>,
     "Galeria": <Galeria/>,
     "Sucursales": <Sucursales />,
     "Contacto": <Contacto/>,
-    "Login": <Login/>
+    "Login": <Login  chVista={props.chVista}/>
     }
   return (
     <div className='contenedorDiv'>
-         {vistas[vista] || <Inicio />}
+         {vistas[props.vista] || <Inicio />}
     </div>
   );
 }
