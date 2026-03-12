@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import api from "./Services/api";
 import './Productos.css';
 import RegistrarProducto from "./RegistrarProducto";
+import { useAuth } from "./AuthContext";
 
 
 function Productos() {
     //https://fakestoreapi.com/docs npm install axios
+    const { isLoggedIn } = useAuth();
 
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -32,12 +34,16 @@ function Productos() {
         <div>
             <main className='classMain'>
                 <header>
+                  {isLoggedIn ? (
+                  <>
                     <RegistrarProducto
                       productoEditado={productoSeleccionado} 
                       limpiarSeleccion={() => setProductoSeleccionado(null)}
                       onActualizacionExitosa={obtenerProductos}
                     />
+                  </>):(
                     <h1>Nuestro Catálogo Tecnológico</h1>
+                  )}
                 </header>
                 <section className='classSection'>
                     {productos.map((producto) => (
@@ -53,13 +59,20 @@ function Productos() {
                             <p>
                                 {producto.price}
                             </p>
-                            <button onClick={createCart}>
-                                Añadir al carrito
-                            </button>
-                            <button className="btn-editar" onClick={()=>setProductoSeleccionado(producto)}>Editar</button>
+                            
+                             {isLoggedIn ? (
+                              <>
+                              <button className="btn-editar" onClick={()=>setProductoSeleccionado(producto)}>Editar</button>
                             <button onClick={() => removerProducto(producto.id)} className="btnEliminar">
                                 Eliminar
                             </button>
+                              </>
+                             ):(
+                              <button onClick={createCart}>
+                                Añadir al carrito
+                            </button>
+                             )}
+                            
                         </article>
                     ))}
                 </section>
